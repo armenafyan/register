@@ -126,6 +126,14 @@ class Person(models.Model):
             )
 
 
+class Presence(models.Model):
+    class Meta:
+        unique_together = ('student', 'lecture', )
+    
+    student = models.ForeignKey('Student')
+    lecture = models.ForeignKey('Lecture')
+
+
 class Lecturer(Person):
     class Meta:
         verbose_name = u'преподаватель'
@@ -144,7 +152,7 @@ class Student(Person):
         verbose_name_plural = u'студенты'
 
     group = models.ForeignKey('Group', related_name='students')
-    was_present_at = models.ManyToManyField('Lecture', related_name='students')
+    was_present_at = models.ManyToManyField('Lecture', related_name='students', through='Presence')
 
     def get_url(self):
         return urlresolvers.reverse(

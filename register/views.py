@@ -47,10 +47,16 @@ class LecturePresenceChanging(generic_base_views.View):
             except models.Student.DoesNotExist:
                 return http.HttpResponse(status=404)
             if int(f.cleaned_data['value']):
-                s.was_present_at.add(l)
+                models.Presence.objects.get_or_create(
+                    student=s,
+                    lecture=l,
+                    )
                 return http.HttpResponse(content='1')
             else:
-                s.was_present_at.remove(l)
+                models.Presence.objects.filter(
+                    student=s,
+                    lecture=l,
+                    ).delete()
                 return http.HttpResponse(content='0')
         else:
             return http.HttpResponse(status=400)
