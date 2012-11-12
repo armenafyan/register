@@ -25,10 +25,12 @@
 
 {% block content %}
 <p>
-  Лекция <a href="{{ lecture.course.get_url }}">{{ lecture.course.name }},</a>
-  {% if lecture.get_happened %}провёл{% else %}проводит{% endif %}
+  Лекция по дисциплине <a href="{{ lecture.course.get_url }}">{{ lecture.course.name }},</a>
+  {% if lecture.get_happened %}провёл{% else %}проведёт{% endif %}
   <a href="{{ lecture.course.lecturer.get_url }}">{{ lecture.course.lecturer }}</a>
-  {{ lecture.get_time }}{% if lecture.place %} в {{ lecture.place }}{% endif %}.
+  {{ lecture.get_time }}
+  {% if lecture.place %} в {{ lecture.place }}{% endif %}
+  у <a href="{{ lecture.course.group.get_url }}">потока {{ lecture.course.group }}.</a>
 </p>
 {% if lecture.get_happened %}
 <table>
