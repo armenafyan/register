@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block title %}{{ lecturer }} — Преподаватели{% endblock %}
+
+
+{% block navigation %}
+<li>
+  <a href="{% url lecturers %}">Преподаватели</a>
+</li>
+<li>
+  <a href="{{ lecturer.get_url }}">{{ lecturer }}</a>
+</li>
+{% endblock %}
+
+
+{% block content %}
+<h2>Преподаёт</h2>
+{% if lecturer.courses.all %}
+<ul class="list">
+  {% for c in lecturer.courses.all %}
+  <li>
+    <a href="{{ c.get_url }}">{{ c }}</a>
+  </li>
+  {% endfor %}
+</li>
+{% else %}
+<div class="notification">
+  Преподаватель не читает ни одного курса.
+</div>
+{% endif %}
+{% endblock %}

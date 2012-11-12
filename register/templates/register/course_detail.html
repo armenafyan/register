@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block title %}{{ course }} — Предметы{% endblock %}
+
+
+{% block navigation %}
+<li>
+  <a href="{% url courses %}">Предметы</a>
+</li>
+<li>
+  <a href="{{ course.get_url }}">{{ course }}</a>
+</li>
+{% endblock %}
+
+
+{% block content %}
+<p>
+  Ведёт <a href="{{ course.lecturer.get_url }}">{{ course.lecturer }}</a> у <a href="{{ course.group.get_url }}">потока {{ course.group }}.</a>
+</p>
+{% if course.lectures.all %}
+<ul class="list">
+  {% for l in course.lectures.all %}
+  <li>
+    <a href="{{ l.get_url }}">{{ l.get_time }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<div class="notification">
+  Лекций по этой дисциплине пока не намечалось.
+</div>
+{% endif %}
+{% endblock %}

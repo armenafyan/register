@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru-RU">
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} — Журнал посещений</title>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}reset.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style.css" media="screen">
+    <script src="{{ STATIC_URL }}jquery.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}underscore.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}util.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}main.js" type="text/javascript"></script>
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    <div class="header">
+      <div class="main-column">
+        <a href="{% url home %}">
+          <h1 class="header-title">Журнал посещений Технопарк @ Mail.Ru</h1>
+        </a>
+      </div>
+    </div>
+    <div class="main-column">
+      <ul class="navigation">
+        <li>
+          <a href="{% url home %}">Главная</a>
+        </li>
+        {% block navigation %}{% endblock %}
+      </ul>
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>

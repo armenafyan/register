@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{% block title %}{{ student }} — Студенты{% endblock %}
+
+
+{% block navigation %}
+<li>
+  <a href="{% url students %}">Студенты</a>
+</li>
+<li>
+  <a href="{{ student.get_url }}">{{ student }}</a>
+</li>
+{% endblock %}
+
+
+{% block content %}
+<p>
+  Студент {{ student }} занимается на <a href="{{ student.group.get_url }}">потоке {{ student.group }}.</a>
+</p>
+<h2>Посещённые лекции</h2>
+{% if student.was_present_at.all %}
+<ul class="list">
+  {% for l in student.was_present_at.all %}
+  <li>
+    <a href="{{ l.get_url }}">{{ l }}</a>
+  </li>
+  {% endfor %}
+</li>
+{% else %}
+<div class="notification">
+  Студент пока не посетил ни одной лекции.
+</div>
+{% endif %}
+{% endblock %}

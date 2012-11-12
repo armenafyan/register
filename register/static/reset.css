@@ -1,0 +1,121 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+	line-height: 1.6em;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+        display: block;
+}
+ol, ul {
+        list-style: none;
+}
+blockquote, q {
+        quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+        content: '';
+        content: none;
+}
+table {
+        border-collapse: collapse;
+        border-spacing: 0;
+}
+html {font-size: 62.5%; font-family: Arial,Helvetica,FreeSans,"Liberation Sans","Nimbus Sans L",sans-serif;}
+strong, b, th, thead td, h1, h2, h3, h4, h5, h6 {font-weight: bold;}
+cite, em, i, dfn {font-style: italic;}
+code, kbd, samp, pre, tt, var {font-size: 92%; font-family: "Courier New",Courier,FreeMono,"Nimbus Mono L","Liberation Mono",monospace;}
+textarea, select, option {font-family: "Courier New",Courier,FreeMono,"Nimbus Mono L","Liberation Mono",monospace; font-size:100%;}
+input[type='text'], input[type='password'] {font-family: "Courier New",Courier,FreeMono,"Nimbus Mono L","Liberation Mono",monospace; font-size:100%;}
+del {text-decoration: line-through; color: #666;}
+ins, dfn {border-bottom: 1px solid #ccc;}
+small, sup, sub {font-size: 85%;}
+abbr, acronym {text-transform: uppercase; font-size: 85%; letter-spacing: .1em;}
+a abbr, a acronym {border: none;}
+abbr[title], acronym[title], dfn[title] {cursor: help; border-bottom: 1px solid #ccc;}
+sup {vertical-align: super;}
+sub {vertical-align: sub;}
+
+blockquote {border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; color: #666;}
+blockquote *:first-child:before {content: "\201C";}
+blockquote *:first-child:after {content: "\201D";}
+
+q {quotes: "\201C" "\201D" "\2018" "\2019";}
+
+fieldset {border: 1px solid #ccc;}
+legend {background: #fff;}
+textarea, input[type='text'], input[type='password'], select {border: 1px solid #ccc; background: #fff;}
+textarea:hover, input[type='text']:hover, input[type='password']:hover, select:hover {border-color: #aaa;}
+textarea:focus, input[type='text']:focus, input[type='password']:focus, select:focus {border-color: #888; outline:none;}
+input[type='text'], input[type='password'] {cursor: text;}
+input {vertical-align:middle;}
+
+body {font-size: 1.2em; line-height: 1.6em; background:#FFF; color:#000 }
+h1 {font-size: 1.6em;}
+h2 {font-size: 1.5em;}
+h3 {font-size: 1.4em;}
+h4 {font-size: 1.3em;}
+h5 {font-size: 1.2em;}
+h6 {font-size: 1em;}
+
+hr {display: block; background: #aaa; color: #aaa; width: 100%; height: 1px; border: none;}
+
+ul+li {text-indent: -.85em; margin-left: .85em;}
+ul+li:before {content: "\2022\00a0\00a0";}
+ol {list-style-position: outside; list-style-type: decimal;}
+dt {font-weight: bold;}
+
+th, td {vertical-align:top;}
+
+blockquote *:first-child {margin: .8em 0;}
+hr, p, dl, pre, blockquote, address, table, form {margin-bottom: 1.6em;}
+ol, ul {margin-bottom: .4em;}
+p+p {margin-top: -.8em;}
+
+th, td {padding: .8em;}
+caption {padding-bottom: .8em;}
+blockquote {padding: 0 1em; margin: 1.6em 0;}
+fieldset {padding: 0 1em 1em 1em; margin: 1.6em 0;}
+legend {padding-left: .8em; padding-right: .8em;}
+legend+* {margin-top: 1em;}
+textarea, input {padding: .15em .4em .25em .4em;}
+input {margin:0.1em 0.3em 0.3em 0em}
+select {padding: .1em 0 0 .2em;}
+option {padding: 0 .4em;}
+ul {margin-left: 1.5em;}
+ol {margin-left: 2.35em;}
+ol ol, ul ol {margin-left: 2.5em;}
+form div {margin-bottom: .8em;}
+
+dt {margin-top: .8em; margin-bottom: .4em;}
+
+a:link {text-decoration: underline; color: #06c;}
+a:visited {text-decoration: underline; color: #66a;}
+a:hover {text-decoration: underline; color: #358;}
+a:active, a:focus {text-decoration: underline; color: #000;}
+code, pre {color: #c33;}
+
+.clearfix:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; font-size:0;}
+.clearfix {display: inline-block;} /* for IE/Mac */
+html[xmlns] .clearfix {display: block;}
+
+img[align=left] {float:left; margin:0 1em 1em 0}
+img[align=right] {float:right; margin:0 0 1em 1em}

@@ -1,0 +1,123 @@
+html {
+    font-size: 110%;
+}
+
+.header {
+    width: 100%;
+    background-color: #000;
+}
+
+.header-title {
+    background: url('/static/logo.png') no-repeat center center;
+    display: block;
+    text-indent: -999999pt;
+    width: 240px;
+    height: 40px;
+    margin: 0 auto;
+}
+
+.main-column {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.navigation {
+    font-size: 70%;
+    margin: .5em 0;
+    overflow: hidden;
+}
+
+.navigation > li {
+    float: left;
+    margin: 0 .25em 0 0;
+}
+
+.navigation > li:after {
+    content: "/";
+    font-size: 110%;
+}
+
+.navigation > li > a:link, .navigation > li > a:hover, .navigation > li > a:visited, .navigation > li > a:active {
+    text-decoration: none;
+}
+
+.navigation > li > a:hover {
+    text-decoration: underline;
+}
+
+.tile {
+    width: 350px;
+    margin: 50px 25px 70px;
+    float: left;
+    height: 300px;
+}
+
+.tile > ul {
+    height: 250px;
+    overflow: hidden;
+}
+
+.tile-header:link, .tile-header:visited, .tile-header:hover, .tile-header:active {
+    text-decoration: none;
+    color: #000;
+}
+
+.tile-header:hover {
+    text-decoration: underline;
+}
+
+.notification {
+    font-size: 200%;
+    color: #ccc;
+    text-align: center;
+    width: 50%;
+    margin: 200px auto;
+}
+
+.column .notification {
+    width: 100%;
+    margin: 120px auto;
+}
+
+.list {
+    font-size: 150%;
+    margin: .5em 0;
+}
+
+.list > li {
+    margin: .5em 0;
+    line-height: .8;
+}
+
+.list > li > a:link, .list > li > a:hover, .list > li > a:visited, .list > li > a:active {
+    line-height: 1;
+}
+
+.full-list-link {
+    font-size: 90%;
+}
+
+.column {
+    width: 380px;
+    float: left;
+    margin: 0 10px;
+}
+
+.student-number {
+    text-align: right;
+}
+
+.student-was-present-wrap {
+    vertical-align: middle;
+}
+
+.student-was-present-input {
+    width: 16px;
+    height: 16px;
+}
+
+.gauge {
+    width: 16px;
+    height: 16px;
+    background: url('/static/gauge.gif');
+}

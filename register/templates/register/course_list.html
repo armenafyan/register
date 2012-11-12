@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Предметы{% endblock %}
+
+
+{% block navigation %}
+<li>
+  <a href="{% url courses %}">Предметы</a>
+</li>
+{% endblock %}
+
+
+{% block content %}
+{% if courses %}
+<ul class="list">
+  {% for c in courses %}
+  <li>
+    <a href="{{ c.get_url }}">{{ c.get_name }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<div class="notification">
+  Пока нет ни одного предмета.
+</div>
+{% endif %}
+{% endblock %}

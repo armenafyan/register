@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Студенты{% endblock %}
+
+
+{% block navigation %}
+<li>
+  <a href="{% url students %}">Студенты</a>
+</li>
+{% endblock %}
+
+
+{% block content %}
+<h2>Все студенты</h2>
+{% if students %}
+<ul class="list">
+  {% for s in students %}
+  <li>
+    <a href="{{ s.get_url }}">{{ s }}</a>
+  </li>
+  {% endfor %}
+</li>
+{% else %}
+<div class="notification">
+  Пока нет ни одного студента.
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Главная{% endblock %}
+
+
+{% block content %}
+<div class="tile">
+  <a class="tile-header" href="{% url groups %}">
+    <h2>Наши потоки</h2>
+  </a>
+  {% if groups %}
+  <ul>
+    {% for g in groups|slice:':10' %}
+    <li>
+      <a href="{{ g.get_url }}">{{ g.get_name }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  <a class="full-list-link" href="{% url groups %}">Все потоки...</a>
+  {% endif %}
+</div>
+<div class="tile">
+  <a class="tile-header" href="{% url courses %}">
+    <h2>Наши предметы</h2>
+  </a>
+  {% if courses %}
+  <ul>
+    {% for c in courses|slice:':10' %}
+    <li>
+      <a href="{{ c.get_url }}">{{ c.get_name }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  <a class="full-list-link" href="{% url courses %}">Все предметы...</a>
+  {% endif %}
+</div>
+<div class="tile">
+  <a class="tile-header" href="{% url students %}">
+    <h2>Наши студенты</h2>
+  </a>
+  {% if students %}
+  <ul>
+    {% for s in students|slice:':10' %}
+    <li>
+      <a href="{{ s.get_url }}">{{ s.get_fullname }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  <a class="full-list-link" href="{% url students %}">Все студенты...</a>
+  {% endif %}
+</div>
+<div class="tile">
+  <a class="tile-header" href="{% url lecturers %}">
+    <h2>Наши преподаватели</h2>
+  </a>
+  {% if lecturers %}
+  <ul>
+    {% for l in lecturers|slice:':10' %}
+    <li>
+      <a href="{{ l.get_url }}">{{ l.get_fullname }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  <a class="full-list-link" href="{% url lecturers %}">Все преподаватели...</a>
+  {% endif %}
+</div>
+{% endblock %}

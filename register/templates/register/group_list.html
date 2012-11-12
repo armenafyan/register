@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Потоки{% endblock %}
+
+
+{% block navigation %}
+<li>
+  <a href="{% url groups %}">Потоки</a>
+</li>
+{% endblock %}
+
+
+{% block content %}
+{% if groups %}
+<ul class="list">
+  {% for g in groups %}
+  <li>
+    <a href="{{ g.get_url }}">{{ g.get_name }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<div class="notification">
+  Пока нет ни одного потока.
+</div>
+{% endif %}
+{% endblock %}

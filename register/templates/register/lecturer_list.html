@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Преподаватели{% endblock %}
+
+
+{% block navigation %}
+<li>
+  <a href="{% url lecturers %}">Преподаватели</a>
+</li>
+{% endblock %}
+
+
+{% block content %}
+{% if lecturers.all %}
+<ul class="list">
+  {% for l in lecturers.all %}
+  <li>
+    <a href="{{ l.get_url }}">{{ l }}</a>
+  </li>
+  {% endfor %}
+</li>
+{% else %}
+<div class="notification">
+  Пока нет ни одного преподавателя.
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+
+{% block title %}{{ lecture }} — Лекции{% endblock %}
+
+
+{% block head %}
+<script type="text/javascript">
+  window.LECTURE = {
+  presenceChangingURL: '{{ lecture.get_presence_changing_url }}'
+  };
+</script>
+{% endblock %}
+
+
+{% block navigation %}
+<li>
+  <a href="{% url lectures %}">Лекции</a>
+</li>
+<li>
+  <a href="{{ lecture.get_url }}">{{ lecture }}</a>
+</li>
+{% endblock %}
+
+
+{% block content %}
+<p>
+  Лекция <a href="{{ lecture.course.get_url }}">{{ lecture.course.name }},</a>
+  {% if lecture.get_happened %}провёл{% else %}проводит{% endif %}
+  <a href="{{ lecture.course.lecturer.get_url }}">{{ lecture.course.lecturer }}</a>
+  {{ lecture.get_time }}{% if lecture.place %} в {{ lecture.place }}{% endif %}.
+</p>
+{% if lecture.get_happened %}
+<table>
+  <tr>
+    <th colspan="3">
+      <h3>Студенты</h3>
+    </th>
+  </tr>
+  <tr>
+    <th class="student-number">
+      #
+    </th>
+    <th>
+      Имя
+    </th>
+    <th>
+      Посетил?
+    </th>
+  </tr>
+  {% if lecture.get_students %}
+  {% csrf_token %}
+  {% for s in lecture.get_students %}
+  <tr>
+    <td class="student-number">
+      {{ forloop.counter }}.
+    </td>
+    <td>
+      <a href="{{ s.get_url }}">{{ s }}</a>
+    </td>
+    <td class="student-was-present-wrap">
+      <input class="student-was-present-input" name="{{ s.id }}" type="checkbox"{% if s.was_present %} checked{% endif %}>
+    </td>
+  </tr>
+  {% endfor %}
+  {% else %}
+  <tr>
+    <td colspan="3">
+      <div class="notification">
+        В потоке {{ lecture.course.group }} нет ни одного студента.
+      </div>
+    </td>
+  </tr>
+  {% endif %}
+</table>
+{% else %}
+<div class="notification">
+  Лекция начнётся через {{ lecture.get_offset }}.
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+
+{% block title %}{{ group }} — Потоки{% endblock %}
+
+
+{% block navigation %}
+<li>
+  <a href="{% url groups %}">Потоки</a>
+</li>
+<li>
+  <a href="{{ group.get_url }}">{{ group }}</a>
+</li>
+{% endblock %}
+
+
+{% block content %}
+<h2>Поток {{ group }}</h2>
+<div class="column">
+  <h3>Студенты</h3>
+  {% if group.students.all %}
+  <ol class="list">
+    {% for s in group.students.all %}
+    <li>
+      <a href="{{ s.get_url }}">{{ s }}</a>
+    </li>
+    {% endfor %}
+  </ol>
+  {% else %}
+  <div class="notification">
+    Нет ни одного студента в потоке.
+  </div>
+  {% endif %}
+</div>
+<div class="column">
+  <h3>Лекции</h3>
+  {% if group.get_lectures %}
+  <ul class="list">
+    {% for l in group.get_lectures %}
+    <li>
+      <a href="{{ l.get_url }}">{{ l }}</a>
+    </li>
+    {% endfor %}
+  </ol>
+  {% else %}
+  <div class="notification">
+    Лекций для этого потока пока не намечалось.
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
